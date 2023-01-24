@@ -10,7 +10,7 @@ It is built with the Python-powered static site generator [Pelican](https://getp
 First clone the repository and install submodules:
 
 ```
-git clone https://github.com/koudyk/osoh.git
+git clone https://github.com/OpenScienceOfficeHours/osoh_website.git
 cd datalad.org
 git submodule update --init --recursive
 ```
