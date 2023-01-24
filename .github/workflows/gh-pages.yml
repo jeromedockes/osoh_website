@@ -1,42 +1,44 @@
-name: github pages
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
 
 on:
+  # Runs on pushes targeting the default branch
   push:
-    branches:
-      - master
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
+  # Single deploy job since we're just deploying
   deploy:
-    runs-on: ubuntu-20.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: true
-          fetch-depth: 0
-
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
-
-      - name: Setup pelican
-        shell: bash
-        run: |
-          pip install wheel pyclean pelican beautifulsoup4
-          git submodule update --init
-
-      - name: Build
-        run: |
-          pyclean ./
-          pelican --delete-output-directory --debug --fatal errors content -s publishconf.py
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           enable_jekyll: false
           publish_dir: ./output
-          cname: www.datalad.org
+          cname: https://openscienceofficehours.github.io/osoh_website/
           user_name: 'AutoBuild'
-          user_email: 'blackhole@datalad.org'
+          user_email: 'open.science.office.hours@gmail.com'
           commit_message: ${{ github.event.head_commit.message }}
