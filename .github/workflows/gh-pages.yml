@@ -35,10 +35,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          enable_jekyll: false
-          publish_dir: ./output
-          cname: https://openscienceofficehours.github.io/osoh_website/
-          user_name: 'AutoBuild'
-          user_email: 'open.science.office.hours@gmail.com'
-          commit_message: ${{ github.event.head_commit.message }}
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
