@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>DataLad in the wild</title>
+  <title>Open science resources</title>
   <meta name="save_as" content="in-the-wild.html" />
   <meta name="url" content="in-the-wild.html" />
 </head>
@@ -8,9 +8,8 @@
 
   <section>
     <p class="use-case-text" >
-      DataLad is integrated with a variety of hosting services and data management platforms,
-      and extended and used by a diverse community.
-      Search through all integrations, extensions, academic applications, and other use cases to find the right fit for your data!
+      One of our goals is to help researchers navigate the open-science resources that are available to them.
+      Search through the different aspects of open science to figure out what you can do to make your research more open!
     </p>
     <div id="app" class="integrations">
       <div class="filter-options">
@@ -20,9 +19,12 @@
         </div>
         <div class="tag-filter-options">
           <input type="radio" name="radio_group" v-model="radio_group_value" @change="selectRadioButton()" v-bind:value="'all'" id="all"><label for="all">All</label>
-          <input type="radio" name="radio_group" v-model="radio_group_value" @change="selectRadioButton()" v-bind:value="'integration'" id="integrations"><label for="integrations">Integrations</label>
-          <input type="radio" name="radio_group" v-model="radio_group_value" @change="selectRadioButton()" v-bind:value="'extension'" id="extensions"><label for="extensions">Extensions</label>
-          <input type="radio" name="radio_group" v-model="radio_group_value" @change="selectRadioButton()" v-bind:value="'academic'" id="academic"><label for="academic">Academic</label>
+          <input type="radio" name="radio_group" v-model="radio_group_value" @change="selectRadioButton()"
+            v-bind:value="'integration'" id="integrations"><label for="integrations">Open Data</label>
+          <input type="radio" name="radio_group" v-model="radio_group_value" @change="selectRadioButton()"
+            v-bind:value="'extension'" id="extensions"><label for="extensions">Open Code</label>
+          <input type="radio" name="radio_group" v-model="radio_group_value" @change="selectRadioButton()"
+            v-bind:value="'academic'" id="academic"><label for="academic">Open Publication</label>
           <span class="tag-anchor">More tags&nbsp;<span class="icon-down-dir"></span>
             <span class="tag-tooltip" v-bind:class="{ visible: popoverShow }" ref="tag_tooltip">
               <span v-if="tag_options_filtered.length == 0"><em>No tags found</em></span>

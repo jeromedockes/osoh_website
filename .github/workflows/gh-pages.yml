@@ -36,7 +36,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           enable_jekyll: false
           publish_dir: ./output
-          cname: www.datalad.org
+          cname: openscienceofficehours.github.io/osoh_website/
           user_name: 'AutoBuild'
-          user_email: 'blackhole@datalad.org'
+          user_email: 'open.science.office.hours@gmail.com'
           commit_message: ${{ github.event.head_commit.message }}

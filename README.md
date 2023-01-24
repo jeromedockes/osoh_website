@@ -1,6 +1,6 @@
 # Source datalad.org
 
-This repository contains the source code for the DataLad website: https://www.datalad.org/
+This repository contains the source code for the OSOH website: https://www.osoh.github.io/
 
 It is built with the Python-powered static site generator [Pelican](https://getpelican.com/)
 
@@ -10,7 +10,7 @@ It is built with the Python-powered static site generator [Pelican](https://getp
 First clone the repository and install submodules:
 
 ```
-git clone https://github.com/datalad/datalad.org.git
+git clone https://github.com/koudyk/osoh.git
 cd datalad.org
 git submodule update --init --recursive
 ```
@@ -40,5 +40,3 @@ Contributions are welcome! Please:
 - ensure that your changes render locally
 - push your commits to your fork
 - create a pull request to the upstream `master` branch, with a description of your proposed changes
-
-If your contributions do not involve specific changes to the code, please [create an issue](https://github.com/datalad/datalad.org/issues/new).
